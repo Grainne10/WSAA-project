@@ -194,3 +194,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# Remove config file
+config.py
