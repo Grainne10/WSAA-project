@@ -30,25 +30,141 @@
         </table>
         <br/>
         </div>
+        <form id="expenseForm">
+            <input type="hidden" id="expenseId" name="id">
+            Month: <input type="text" id="month" name="month" required><br/>
+            Category: <input type="text" id="category" name="category" required><br/>
+            Status: <select id="status" name="status" required>
+                <option value="">Select status</option>
+                <option value="submitted">Submitted</option>
+                <option value="inprocess">In Process</option>
+                <option value="paid">Paid</option>
+            </select><br/>
+            Amount: <input type="number" id="amount" name="amount" step="0.01" required><br/>
+            
+            <button type="button" id="createBtn" onclick="createExpense()">Create</button>
+            <button type="button" id="updateBtn" onclick="updateExpense()" class="hidden">Update</button>
+            <button type="button" onclick="cancelForm()">Cancel</button>
+        </form>
+        
+    </body>
+</html>
+
+<script>
+    //Functions to do:
+// 1. get all expenses 
+// 2. create an expense
+//      - define an object to hold the information (formData)
+//      - check if any parameter is empty
+//      - send API request to FLASK (server.py)
+
+<head>
+        <title>View expenses</title>
+        # change<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> 
+
+        <script src="./ajaxcalls.js"></script>
+    </head>
+    <body>
+        <h1>Expenses</h1>
+        <div><button id="button-showCreate" onclick="showCreate()">Create an Expense</button><br/><br/></div>
         <div>
+            <table border="1" id="bookTable">
+                <tr>
+                        <th>id</th>
+                        <th>Month</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                </tr>
+                <tr id="1">
+                    <td>1</td>
+                    <td>January</td>
+                    <td>Meals</td>
+                    <td>30</td>
+                    <td>Submitted</td>
+                    <td><button onclick="showUpdate(this)">update</button></td>
+                    <td><button onclick="doDelete(this)">delete</button></td>
+                   
+            </tr>
+
+        </table>
+        <br/>
+        </div>
+        <div id="createUpdateForm" style="display:none">
             <!-- spans are like divs but do not go onto a new line -->
-            <h2><span>Create an</span> <span style="display:none">Update this</span> Expense</h2>
+            <h2><span id="createexpense">Create an</span> <span id="updateLabel">Update this</span> Expense</h2>
             id <input type="text" name="id"><br/>
             Month <input type="text" name="month"><br/>
             Category <input type="text" name="category"><br/>
-            Status <input type="text" name="status"><br/>
             Amount <input type="number" name="amount"><br/>
-            Just to show select <select name="status">
-                <option value="submitted">submitted</option>
-                <option value="inprocess">inprocess</option>
-                <option value="paid">paid</option>
-            </select><br/>
-            <span><button>Create</button></span>
- 			<span><button style="display:none">Update</button></span>
+            Status <input type="number" name="status"><br/>
+           
+            <span><button id="button-doCreate" onclick="doCreate()">Create</button></span>
+ 			<span><button id="button-doUpdate" onclick="doUpdate()">Update</button></span>
              <!-- "display:none" will make it hidden-->
 
 
         </div>
-        
+             
     </body>
-</html>
+    <script>
+        //console.log("hello world")
+        function showCreate(){
+            document.getElementById("createUpdateForm").style.display = "block"
+            
+            document.getElementById("button-doCreate").style.display = "block"
+            document.getElementById("button-doUpdate").style.display = "none"
+            document.getElementById("createLabel").style.display = "inline"
+            document.getElementById("updateLabel").style.display = "none"
+
+            document.getElementById("button-showCreate").style.display = "none"
+            document.getElementById("expense").style.display = "none"
+            
+        }
+        function showUpdate(buttonElement){
+            document.getElementById("createUpdateExpense").style.display = "block"
+           
+            document.getElementById("button-doCreate").style.display = "none"
+            document.getElementById("button-doUpdate").style.display = "block"
+            document.getElementById("createLabel").style.display = "none"
+            document.getElementById("updateLabel").style.display = "inline"
+
+            document.getElementById("button-showCreate").style.display = "none"
+            document.getElementById("expense").style.display = "none"
+
+            rowElement= buttonElement.parentNode.parentNode
+            book = getBookFromRow(rowElement)
+            //console.log("updating")
+            //console.log(book)
+            populateFormWithBook(book)
+            
+        }
+function showViewall(){
+            document.getElementById("createUpdateForm").style.display = "none"
+           
+            document.getElementById("button-showCreate").style.display = "block"
+            document.getElementById("expense").style.display = "block"
+            
+        }
+        function clearForm(){
+            var form = document.getElementById('createUpdateForm')
+
+            form.querySelector('input[name="id"]').disabled = false
+            form.querySelector('input[name="id"]').value  =''
+            form.querySelector('input[name="month"]').value=''
+            form.querySelector('input[name="category"]').value=''
+            form.querySelector('input[name="amount"]').value=''
+            form.querySelector('input[name="status"]').value=''
+        }
+        
+
+
+
+        
+
+
+
+
+</script>
