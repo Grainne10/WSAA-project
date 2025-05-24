@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>View expenses</title>
+    </head>
+    <body>
+        <h1>Expenses</h1>
+        <div><button>Create an expense</button><br/><br/></div>
+        <div>
+            <table border="1">
+                <tr>
+                        <th>id</th>
+                        <th>Month</th>
+                        <th>Category</th>
+                        <th>Status</th>
+                        <th>Amount</th>
+                        <th>Create</th>
+                        <th>Delete</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Jan</td>
+                    <td>Meals</td>
+                    <td>Submitted</td>
+                    <td>30</td>
+                    <td><button>update</button></td>
+                    <td><button>delete</button></td>
+                   
+            </tr>
+
+        </table>
+        <br/>
+        </div>
+        <div>
+            <!-- spans are like divs but do not go onto a new line -->
+            <h2><span>Create an</span> <span style="display:none">Update this</span> Expense</h2>
+            id <input type="text" name="id"><br/>
+            Month <input type="text" name="month"><br/>
+            Category <input type="text" name="category"><br/>
+            Status <input type="text" name="status"><br/>
+            Amount <input type="number" name="amount"><br/>
+            Just to show select <select name="status">
+                <option value="submitted">submitted</option>
+                <option value="inprocess">inprocess</option>
+                <option value="paid">paid</option>
+            </select><br/>
+            <span><button>Create</button></span>
+ 			<span><button style="display:none">Update</button></span>
+             <!-- "display:none" will make it hidden-->
+
+
+        </div>
+        
+    </body>
+</html>
