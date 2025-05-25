@@ -54,6 +54,7 @@ db = SQLAlchemy(app)
 
 
 class Expense(db.Model):
+    __tablename__ = 'expenses'
     id = db.Column(db.Integer, primary_key=True)
     month = db.Column(db.String(20), nullable=False)
     category = db.Column(db.String(50), nullable=False)
@@ -80,9 +81,9 @@ def get_expenses():
 def create_expense():
     data = request.json
     new_expense = Expense(
-        month=data['month']
-        category=data['category']
-        amount=data['amount']
+        month=data['month'],
+        category=data['category'],
+        amount=data['amount'],
         status=data['status']
     )
     db.session.add(new_expense)
