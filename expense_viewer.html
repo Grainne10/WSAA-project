@@ -1,50 +1,45 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>View expenses</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> 
+
     </head>
     <body>
         <h1>Expenses</h1>
-        <div><button>Create an expense</button><br/><br/></div>
         <div>
-            <table border="1">
+            <table id="expenseTable" border="1">
                 <tr>
-                        <th>id</th>
+                        <th>ID</th>
                         <th>Month</th>
                         <th>Category</th>
                         <th>Status</th>
                         <th>Amount</th>
-                        <th>Create</th>
+                        <th>Update</th>
                         <th>Delete</th>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Jan</td>
-                    <td>Meals</td>
-                    <td>Submitted</td>
-                    <td>30</td>
-                    <td><button>update</button></td>
-                    <td><button>delete</button></td>
-                   
-            </tr>
-
         </table>
         <br/>
         </div>
         <form id="expenseForm">
-            <input type="hidden" id="expenseId" name="id">
-            Month: <input type="text" id="month" name="month" required><br/>
-            Category: <input type="text" id="category" name="category" required><br/>
-            Status: <select id="status" name="status" required>
+            <input type="hidden" id="editingId" name="editingId" value="">
+            <label>Month:</label>
+            <input type="text" id="month" name="month" required><br>
+            <label>Category:</label>
+            <input type="text" id="category" name="category" required><br>
+            
+            <label>Status:</label>
+            <select id="status" name="status" required>
                 <option value="">Select status</option>
                 <option value="submitted">Submitted</option>
                 <option value="inprocess">In Process</option>
                 <option value="paid">Paid</option>
-            </select><br/>
-            Amount: <input type="number" id="amount" name="amount" step="0.01" required><br/>
+            </select><br>
+            <label>Amount:</label>
+            <input type="number" id="amount" name="amount" step="0.01" required><br>
             
-            <button type="button" id="createBtn" onclick="createExpense()">Create</button>
-            <button type="button" id="updateBtn" onclick="updateExpense()" class="hidden">Update</button>
-            <button type="button" onclick="cancelForm()">Cancel</button>
+            
+            <button type="button" id="createBtn" onclick="handleSubmit()">Create an expense</button>
         </form>
         
     </body>
@@ -58,113 +53,130 @@
 //      - check if any parameter is empty
 //      - send API request to FLASK (server.py)
 
-<head>
-        <title>View expenses</title>
-        # change<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> 
+document.addEventListener('DOMContentLoaded', () => {
+    loadExpenses();
+})
 
-        <script src="./ajaxcalls.js"></script>
-    </head>
-    <body>
-        <h1>Expenses</h1>
-        <div><button id="button-showCreate" onclick="showCreate()">Create an Expense</button><br/><br/></div>
-        <div>
-            <table border="1" id="bookTable">
-                <tr>
-                        <th>id</th>
-                        <th>Month</th>
-                        <th>Category</th>
-                        <th>Amount</th>
-                        <th>Status</th>
-                        <th>Update</th>
-                        <th>Delete</th>
-                </tr>
-                <tr id="1">
-                    <td>1</td>
-                    <td>January</td>
-                    <td>Meals</td>
-                    <td>30</td>
-                    <td>Submitted</td>
-                    <td><button onclick="showUpdate(this)">update</button></td>
-                    <td><button onclick="doDelete(this)">delete</button></td>
-                   
-            </tr>
+function loadExpenses(){
+    fetch('http://localhost:5000/expenses')
+        .then(res => res.json())
+        .then(data => renderTable(data));
+}
 
-        </table>
-        <br/>
-        </div>
-        <div id="createUpdateForm" style="display:none">
-            <!-- spans are like divs but do not go onto a new line -->
-            <h2><span id="createexpense">Create an</span> <span id="updateLabel">Update this</span> Expense</h2>
-            id <input type="text" name="id"><br/>
-            Month <input type="text" name="month"><br/>
-            Category <input type="text" name="category"><br/>
-            Amount <input type="number" name="amount"><br/>
-            Status <input type="number" name="status"><br/>
-           
-            <span><button id="button-doCreate" onclick="doCreate()">Create</button></span>
- 			<span><button id="button-doUpdate" onclick="doUpdate()">Update</button></span>
-             <!-- "display:none" will make it hidden-->
+function renderTable(expenses) {
+    const table = document.getElementById('expenseTable');
+    table.innerHTML = `
+        <tr>
+            <th>ID</th>
+            <th>Month</th>
+            <th>Category</th>
+            <th>Status</th>
+            <th>Amount</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    `; 
 
-
-        </div>
-             
-    </body>
-    <script>
-        //console.log("hello world")
-        function showCreate(){
-            document.getElementById("createUpdateForm").style.display = "block"
-            
-            document.getElementById("button-doCreate").style.display = "block"
-            document.getElementById("button-doUpdate").style.display = "none"
-            document.getElementById("createLabel").style.display = "inline"
-            document.getElementById("updateLabel").style.display = "none"
-
-            document.getElementById("button-showCreate").style.display = "none"
-            document.getElementById("expense").style.display = "none"
-            
-        }
-        function showUpdate(buttonElement){
-            document.getElementById("createUpdateExpense").style.display = "block"
-           
-            document.getElementById("button-doCreate").style.display = "none"
-            document.getElementById("button-doUpdate").style.display = "block"
-            document.getElementById("createLabel").style.display = "none"
-            document.getElementById("updateLabel").style.display = "inline"
-
-            document.getElementById("button-showCreate").style.display = "none"
-            document.getElementById("expense").style.display = "none"
-
-            rowElement= buttonElement.parentNode.parentNode
-            book = getBookFromRow(rowElement)
-            //console.log("updating")
-            //console.log(book)
-            populateFormWithBook(book)
-            
-        }
-function showViewall(){
-            document.getElementById("createUpdateForm").style.display = "none"
-           
-            document.getElementById("button-showCreate").style.display = "block"
-            document.getElementById("expense").style.display = "block"
-            
-        }
-        function clearForm(){
-            var form = document.getElementById('createUpdateForm')
-
-            form.querySelector('input[name="id"]').disabled = false
-            form.querySelector('input[name="id"]').value  =''
-            form.querySelector('input[name="month"]').value=''
-            form.querySelector('input[name="category"]').value=''
-            form.querySelector('input[name="amount"]').value=''
-            form.querySelector('input[name="status"]').value=''
-        }
+    expenses.forEach(expense => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${expense.id}</td>
+            <td>${expense.month}</td>
+            <td>${expense.category}</td>
+            <td>${expense.status}</td>
+            <td>${expense.amount}</td>
+            <td><button onClick="updateExpense(${expense.id})">Update</button></td>
+            <td><button onClick="deleteExpense(${expense.id})">Delete</button></td>
         
+        `; 
+        table.appendChild(row); //adds row to the bottom of the table
+    });
+}
+
+function getFormData() {
+    return {
+        month: document.getElementById('month').value,
+        category: document.getElementById('category').value,
+        status: document.getElementById('status').value,
+        amount: parseFloat(document.getElementById('amount').value)
+    };
+}
+
+function handleSubmit(){
+    const id = document.getElementById('editingId').value;
+    const data = getFormData();
+    console.log('button works');
+
+    if (id) {
+        // UPDATE relative expense
+        fetch(`http://localhost:5000/expenses/${id}`, {
+            method: 'PUT',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(data)
+        }).then(() => {
+            resetForm();
+            loadExpenses();
+        })
+    } else {
+        //CREATE new expense
+        fetch('http://localhost:5000/expenses', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        }).then(() => {
+            resetForm();
+            loadExpenses();
+        });
+    }
+}
+
+function updateExpense(id){
+    fetch('http://localhost:5000/expenses')
+        .then(res => res.json())
+        .then(data => {
+            const expense = data.find(e => e.id === id);
+            if (!expense) return;
+
+            document.getElementById('editingId').value = expense.id;
+            document.getElementById('month').value = expense.month;
+            document.getElementById('category').value = expense.category;
+            document.getElementById('status').value = expense.status;
+            document.getElementById('amount').value = expense.amount;
+
+            document.getElementById('createBtn').innerText = 'Update expense';
+        });
+}
+
+function deleteExpense(id){
+    if(!confirm("Are you sure you want to delete this expense?")) return;
+
+    fetch(`http://localhost:5000/expenses/${id}`, { method: 'DELETE' })
+        .then(() => loadExpenses());
+}
 
 
-
-        
-
-
+function resetForm(){
+    document.getElementById('expenseForm').reset();
+    document.getElementById('editingId').value = '';
+    document.getElementById('createBtn').innerText = 'Create an expense';
+}
 
 
 </script>
+
+
+        
+
+
+
+
+        
+
+
+
+        
+
+
+
+
+
