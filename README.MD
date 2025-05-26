@@ -10,7 +10,7 @@
 **README contents:**
 
 1. [Overview](README.md/#overview)
-2. [TechStack](README.md/#tech stack)
+2. [TechStack](README.md/#techstack)
 3. [Project](README.md/#project)
 4. [Research](README.md/#research)
 
@@ -95,14 +95,14 @@ Deleting Expenses: Click the "Delete" button and confirm the deletion.
 
 1. [Courseware] - github.com Andrew Beatty courseware - Used templates for set up.   
 2. [Config](https://stackoverflow.com/questions/39361115/git-ignore-accidentally-commited-file) - Removing file after commiting.   
-3. [RestServer](https://stackoverflow.com/questions/58642563/what-is-difference-between-rest-api-and-rest-server) - Difference between rest api and restserver).  
-4. [Rest Server](What Is REST API? Examples And How To Use It: Crash Course System Design #3) - Understanding Rest Server and CRUD.  
-5. [Ajax](https://www.geeksforgeeks.org/what-is-ajax/) - understanding what Ajax is.   
-6. [Ajax](https://www.w3schools.com/xml/ajax_intro.asp) - how to use Ajax.  
-7. [Jsonify](Use jsonify() instead of json.dumps() in Flask | GeeksforGeeks) - Use Jsonify.  
-8. [HTML](HTML Tutorial) - Understanding html and writing html.  
-9. [Image1](Attributable picture :Expenses by <a href=http://www.nyphotographic.com/>Nick Youngson</a> <a rel="license" href=https://creativecommons.org/licenses/by-sa/3.0/>CC BY-SA 3.0</a> <a href=http://pix4free.org/>Pix4free</a>))
+3. [RestServer](https://stackoverflow.com/questions/58642563/what-is-difference-between-rest-api-and-rest-server) - Difference between rest api and restserver).    
+4. [Ajax](https://www.geeksforgeeks.org/what-is-ajax/) - understanding what Ajax is.   
+5. [Ajax](https://www.w3schools.com/xml/ajax_intro.asp) - how to use Ajax.  
+6. [Jsonify](Use jsonify() instead of json.dumps() in Flask | GeeksforGeeks) - Use Jsonify.  
+7. [HTML](HTML Tutorial) - Understanding html and writing html.  
+8. [Python Anywhere](https://www.pythonanywhere.com/) - Hosting your application online
+8. [Image1](Attributable picture :Expenses by <a href=http://www.nyphotographic.com/>Nick Youngson</a> <a rel="license" href=https://creativecommons.org/licenses/by-sa/3.0/>CC BY-SA 3.0</a> <a href=http://pix4free.org/>Pix4free</a>))
  
 
 
- 
+ ![expenses](Image1.jpg)
