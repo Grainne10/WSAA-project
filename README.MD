@@ -48,51 +48,61 @@ MySQL Server
 WAMP/XAMPP (recommended for local MySQL setup)
 
 Installation
-1. Clone the Repository
-git clone <WSAA-project>
-cd expense-viewer
-2. Set Up Virtual Environment and activate
-python -m venv venv
-venv\Scripts\activate.bat
-3. Install Dependencies
-install -r requirements.txt
-4. Database Setup
-Using WAMP/XAMPP:
+1. Clone the Repository  
+git clone <WSAA-project>  
+cd expense-viewer  
+2. Set Up Virtual Environment and activate  
+python -m venv venv  
+venv\Scripts\activate.bat  
+3. Install Dependencies:  
+install -r requirements.txt  
+4. Database Setup  
+Using WAMP/XAMPP:  
+Start your WAMP server  
+Open phpMyAdmin (usually at http://localhost/phpmyadmin)  
+Create a new database named expensedb  
+Create the expenses table:  
+CREATE TABLE expenses (  
+    id INT AUTO_INCREMENT PRIMARY KEY,  
+    month VARCHAR(20) NOT NULL,  
+    category VARCHAR(50) NOT NULL,  
+    amount FLOAT NOT NULL,  
+    status VARCHAR(20) NOT NULL  
+);  
 
-Start your WAMP/XAMPP server
-Open phpMyAdmin (usually at http://localhost/phpmyadmin)
-Create a new database named expensedb
-Create the expenses table:
+If you already have WAMP running and database set up:  
 
-CREATE TABLE expenses (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    month VARCHAR(20) NOT NULL,
-    category VARCHAR(50) NOT NULL,
-    amount FLOAT NOT NULL,
-    status VARCHAR(20) NOT NULL
-);
+Just ensure your WAMP server is running (green icon in system tray).  
+Verify that the expensedb database exists with the expenses table.  
+The Flask application will automatically connect using the default WAMP settings (user = root, no password, localhost:3306).    
 
-If you already have WAMP running and database set up:
+To run the Program:  
 
-Just ensure your WAMP server is running (green icon in system tray)
-Verify that the expensedb database exists with the expenses table
-The Flask application will automatically connect using the default WAMP settings (user = root, no password, localhost:3306)
-
-To run the Program:
-
-1. Open the Cmder console. In one console run python server.py
-The server will start on http://localhost:5000
+1. Open the Cmder console. In one console run python server.py  
+The server will start on http://localhost:5000  
 
 2. In second console , run python -m http.server. This Creates a local web server that serves files from the current directory and serves static files HTML, javascript.
 Open http://localhost:8000/expense_viewer.html in your web browser. 
 
 3. Usage
-Adding Expenses: Fill out the form and click "Create an expense"
-Viewing Expenses: All expenses are displayed in the table automatically.
-Updating Expenses: Click the "Update" button next to any expense, modify the form, and submit
-Deleting Expenses: Click the "Delete" button and confirm the deletion
+Adding Expenses: Fill out the form and click "Create an expense".  
+Viewing Expenses: All expenses are displayed in the table automatically. They are auto incremented by ID as per your database table.  
+Updating Expenses: Click the "Update" button next to any expense, modify the form, and submit.  
+Deleting Expenses: Click the "Delete" button and confirm the deletion.  
 
 
+## Research: 
+
+1. [Courseware] - github.com Andrew Beatty courseware - Used templates for set up.   
+2. [Config](https://stackoverflow.com/questions/39361115/git-ignore-accidentally-commited-file) - Removing file after commiting.   
+3. [RestServer](https://stackoverflow.com/questions/58642563/what-is-difference-between-rest-api-and-rest-server) - Difference between rest api and restserver).  
+4. [Rest Server](What Is REST API? Examples And How To Use It: Crash Course System Design #3) - Understanding Rest Server and CRUD.  
+5. [Ajax](https://www.geeksforgeeks.org/what-is-ajax/) - understanding what Ajax is.   
+6. [Ajax](https://www.w3schools.com/xml/ajax_intro.asp) - how to use Ajax.  
+7. [Jsonify](Use jsonify() instead of json.dumps() in Flask | GeeksforGeeks) - Use Jsonify.  
+8. [HTML](HTML Tutorial) - Understanding html and writing html.  
+9. [Image1](Attributable picture :Expenses by <a href=http://www.nyphotographic.com/>Nick Youngson</a> <a rel="license" href=https://creativecommons.org/licenses/by-sa/3.0/>CC BY-SA 3.0</a> <a href=http://pix4free.org/>Pix4free</a>))
+ 
 
 
-
+ 
