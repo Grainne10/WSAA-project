@@ -27,38 +27,38 @@ Connecting the API to a MySQL database via SQLAlchemy.
 Performing CRUD operations(Create, Read, UPdate,Delete) through the API and a simple web interface.    
 Using AJAX to interact with the backend API from the frontend.  
 
-## Tech Stack
-### Backend:
-Flask (Python web framework)
-SQLAlchemy (ORM)
-MySQL (Database)
-Flask-CORS (Cross-origin resource sharing)
-### Frontend:
-HTML5
-JavaScript (ES6+)
-jQuery
-CSS (basic styling)
+## TechStack
+#### Backend:
+Flask (Python web framework)  
+SQLAlchemy (ORM)  
+MySQL (Database)  
+Flask-CORS (Cross-origin resource sharing)  
+#### Frontend:
+HTML5  
+JavaScript (ES6+)  
+jQuery  
+CSS (basic styling)  
 
 ## Project:
 
 Prerequisites
-Before running this application, make sure you have the following installed:
+Before running this application, make sure you have the following installed:  
 
-Python 3.12.4
-MySQL Server
-WAMP/XAMPP (recommended for local MySQL setup)
+Python 3.12.4  
+MySQL Server  
+WAMP/XAMPP (recommended for local MySQL setup)  
 
 Installation
 1. Clone the Repository  
 git clone <WSAA-project>  
-cd expense-viewer
+cd expense-viewer  
 2. Set Up Virtual Environment and activate  
 python -m venv venv  
 venv\Scripts\activate.bat  
 3. Install Dependencies:  
-install -r requirements.txt  
-4. Database Setup  
-Using WAMP/XAMPP:  
+install -r requirements.txt    
+4. Database Setup    
+Using WAMP/XAMPP:     
 Start your WAMP server  
 Open phpMyAdmin (usually at http://localhost/phpmyadmin)  
 Create a new database named expensedb  
@@ -106,6 +106,8 @@ Deleting Expenses: Click the "Delete" button and confirm the deletion.
 8. [Python Anywhere](https://www.pythonanywhere.com/) - Hosting your application online.  
 9. [CSS](https://www.geeksforgeeks.org/css-tutorial/) - Use of CSS styling in HTML , used Claude AI to provide code for styling.
 10.[Image1] #Attributable picture :Expenses by http://www.nyphotographic.com/>Nick Youngson.   
- 
-END
- ![Expenses](Image1.jpg)
+
+--------------------------------- 
+##END
+
+![Expenses](Image/Image1.jpg)
