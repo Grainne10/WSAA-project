@@ -92,8 +92,8 @@ READ - Viewing Expenses: All expenses are displayed in the table automatically w
 UPDATE - Updating Expenses: Click the "Update" button next to any expense, modify the form, and submit.  
 DELETE - Deleting Expenses: Click the "Delete" button and confirm the deletion.  
 
-4. For Pythonanywhere host - https://grainne10.pythonanywhere.com. T
-The expense management application is deployed and accessible online . PythonAnywhere is a cloud-based Python hosting platform that provides a way to deploy Flask applications without managing servers. The deployment includes both the Flask backend API and the static HTML frontend, this allows users to access the full expense application through a web browser. The MySQL database is also hosted on PythonAnywhere's infrastructure.  
+4. For Pythonanywhere host - https://grainne10.pythonanywhere.com.  
+The expense management application is deployed and accessible online. PythonAnywhere is a cloud-based Python hosting platform that provides a way to deploy Flask applications without managing servers. The deployment includes both the Flask backend API and the static HTML frontend, this allows users to access the full expense application through a web browser. The MySQL database is also hosted on PythonAnywhere's infrastructure.  
 
 ## Research
 
@@ -105,7 +105,7 @@ The expense management application is deployed and accessible online . PythonAny
 6. [Jsonify](https://www.geeksforgeeks.org/use-jsonify-instead-of-json-dumps-in-flask/) - Use Jsonify.    
 7. [HTML](https://www.w3schools.com/html/) - Understanding html and writing html.  
 8. [Python Anywhere](https://www.pythonanywhere.com/) - Hosting your application online, used Claude AI to help with this as had some issues after uploading the file.
-9. [CSS](https://www.geeksforgeeks.org/css-tutorial/) - Use of CSS styling in HTML , used Claude AI to provide code for styling.
+9. [CSS](https://www.geeksforgeeks.org/css-tutorial/) - Use of CSS styling in HTML , used Claude AI to provide code for styling.  
 10.[Image1] #Attributable picture :Expenses by http://www.nyphotographic.com/>Nick Youngson.   
 
 --------------------------------- 
