@@ -31,19 +31,19 @@ Flask - Python web framework
 SQLAlchemy - Object Relational Mapping  
 MySQL - Database  
 PyMySQL - MySQL database driver  
-Flask-CORS - Cross-origin resource sharing
-#### Frontend:
-HTML5 - Structure and layout 
-JavaScript (ES6+) - Functionality and API calls
-jQuery - Ajax requests
-CSS - basic styling
+Flask-CORS - Cross-origin resource sharing  
+#### Frontend:  
+HTML5 - Structure and layout  
+JavaScript (ES6+) - Functionality and API calls  
+jQuery - Ajax requests  
+CSS - basic styling  
 
-#### Development Tools:
-WAMP - Local development environment
-phpMyAdmin - Database management interface
+#### Development Tools:  
+WAMP - Local development environment  
+phpMyAdmin - Database management interface  
 
-## Project:
-#### Prerequisites
+## Project  
+#### Prerequisites:   
 Before running this application, make sure you have the following installed:  
 
 Python 3.12.4  
@@ -82,9 +82,9 @@ The Flask application will automatically connect using the default WAMP settings
 1. Open the Cmder console. In one console run python server.py  
 The server will start on http://localhost:5000  
 
-2. In second console , run python -m http.server. This Creates a local web server that serves files from the current directory and serves static files HTML, javascript.
+2. In second console , run python -m http.server. This creates a local web server that serves files from the current directory and serves static files HTML, javascript.  
 
-3. Access the application, Open http://localhost:8000/expense_viewer.html in your web browser. 
+3. Access the application, Open http://localhost:8000/expense_viewer.html in your web browser.  
 
 3. Usage - Go to the end of the sheet and fill in the expense form.  
 CREATE - Adding Expenses: Fill out the form and click "Create an expense".  
@@ -92,9 +92,10 @@ READ - Viewing Expenses: All expenses are displayed in the table automatically w
 UPDATE - Updating Expenses: Click the "Update" button next to any expense, modify the form, and submit.  
 DELETE - Deleting Expenses: Click the "Delete" button and confirm the deletion.  
 
-4. For Pythonanywhere host - https://grainne10.pythonanywhere.com. The expense management application is deployed and accessible online . PythonAnywhere is a cloud-based Python hosting platform that provides a way to deploy Flask applications without managing servers. The deployment includes both the Flask backend API and the static HTML frontend, this allows users to access the full expense application through a web browser. The MySQL database is also hosted on PythonAnywhere's infrastructure.
+4. For Pythonanywhere host - https://grainne10.pythonanywhere.com. T
+The expense management application is deployed and accessible online . PythonAnywhere is a cloud-based Python hosting platform that provides a way to deploy Flask applications without managing servers. The deployment includes both the Flask backend API and the static HTML frontend, this allows users to access the full expense application through a web browser. The MySQL database is also hosted on PythonAnywhere's infrastructure.  
 
-## Research: 
+## Research
 
 1. [Courseware] - github.com Andrew Beatty courseware - Used templates for set up.     
 2. [Config](https://stackoverflow.com/questions/39361115/git-ignore-accidentally-commited-file) - Removing file after commiting.     
@@ -108,6 +109,6 @@ DELETE - Deleting Expenses: Click the "Delete" button and confirm the deletion.
 10.[Image1] #Attributable picture :Expenses by http://www.nyphotographic.com/>Nick Youngson.   
 
 --------------------------------- 
-##END
+## END
 
-![Image1](Image/Image1.jpg)
+![Image1](/Image/Image1.jpg)

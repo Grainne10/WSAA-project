@@ -196,4 +196,8 @@ $RECYCLE.BIN/
 *.lnk
 
 # Remove config file
-config.py
+db_config.py
+
+# Remove test file
+serverfinal.py
+pythonanywhere/
